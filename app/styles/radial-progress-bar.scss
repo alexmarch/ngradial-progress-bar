@@ -26,13 +26,8 @@
 			position: absolute;
 			border-radius: 50%;
 		}
-		.shadow {
-			//box-shadow: $shadow inset;
-		}
 		.mask, .fill {
-			-webkit-backface-visibility: hidden;
-			transition: -webkit-transform $transition-length;
-			transition: -ms-transform $transition-length;
+			backface-visibility: hidden;
 			transition: transform $transition-length;
 			border-radius: 50%;
 		}
@@ -53,7 +48,6 @@
 
 		background-color: $inset-color;
 		border-radius: 50%;
-		//box-shadow: $shadow;
 
 		.percentage {
 			width:       $percentage-text-width;
@@ -78,13 +72,9 @@
 		&[data-progress="#{$i}"] {
 			.circle {
 				.mask.full, .fill {
-					-webkit-transform: rotate($increment * $i);
-					-ms-transform: rotate($increment * $i);
 					transform: rotate($increment * $i);
 				}
 				.fill.fix {
-					-webkit-transform: rotate($increment * $i * 2);
-					-ms-transform: rotate($increment * $i * 2);
 					transform: rotate($increment * $i * 2);
 				}
 			}

@@ -28,10 +28,10 @@ angular
                       '</div>'+
                   '</div>',
       restrict: 'AE',
-      link: function postLink(scope, element, attrs) {
-        $timeout(function(){
-          scope.percentage = attrs.percentage;
-        },200);
+      scope: {
+        // One way data-binding. Every time it changes outside, it will change here
+        // and progress will be updated
+        percentage: '@'
       }
     };
   });

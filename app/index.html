@@ -20,8 +20,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
-      <radial-progress-bar percentage="100"></radial-progress-bar>
+    <div class="container" ng-init="progress = 70">
+      <radial-progress-bar percentage="{{progress}}"></radial-progress-bar>
+      <button ng-click="progress= 50">Change value to 50</button>
     </div>
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
