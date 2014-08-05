@@ -10,7 +10,7 @@
  */
 angular
   .module('App', [])
-  .directive('radialProgressBar', function ($timeout) {
+  .directive('radialProgressBar', function () {
     return {
       template: '<div class="radial-progress" data-progress="{{percentage}}">'+
                   '<div class="circle">'+
