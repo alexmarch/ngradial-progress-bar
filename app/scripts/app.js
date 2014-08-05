@@ -10,9 +10,9 @@
  */
 angular
   .module('App', [])
-  .directive('radialProgressBar', function () {
+  .directive('radialProgressBar', function ($timeout) {
     return {
-      template: '<div class="radial-progress" data-progress="{{percentage}}">'+
+      template: '<div class="radial-progress" data-progress="{{percentageValue}}">'+
                   '<div class="circle">'+
                       '<div class="mask full">'+
                           '<div class="fill"></div>'+
@@ -32,6 +32,15 @@ angular
         // One way data-binding. Every time it changes outside, it will change here
         // and progress will be updated
         percentage: '@'
+      },
+      link: function(scope) {
+        scope.percentageValue = 0;
+        scope.$watch('percentage', function(newValue) {
+          $timeout(function() {
+            scope.percentageValue = newValue;
+          }, 200);
+        });
+
       }
     };
   });
